@@ -1,12 +1,13 @@
 import urllib.request
 import re
-from SimpleTokenizerV1 import *
+from SimpleTokenizer import *
 '''
 第一部分
 1、下载文本
 2、读取文本
 3、分词：保留标点符号，去除空格、空白字符
     正则表达式的写法：re.split(r"([,.:;?!_()'\"]|--|\s)",text)
+4、排序: 对词组进行去重
 
 '''
 # 下载文本
@@ -61,7 +62,7 @@ def sortText(result):
 def enumerateText(vocabList):
     # 通过enumerate()创建词典，自动增加序列
     vocabDict = {token:integer for integer, token in enumerate(vocabList)}
-    #for i, item in enumerate(vocabDict.items()):
+    # for i, item in enumerate(vocabDict.items()):
         # 打印前50项
         # print(item)
         # if i >= 50:
